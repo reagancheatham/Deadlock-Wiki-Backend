@@ -28,7 +28,11 @@ export default {
             `Updating character with info: ${JSON.stringify(characterInfo)}.`
         );
 
-        await Character.update(characterInfo)
+        await Character.update(characterInfo, {
+            where: {
+                name: characterInfo.name,
+            },
+        })
             .then((data) => {
                 routesUtil.success(
                     res,
@@ -41,7 +45,7 @@ export default {
             });
     },
     async delete(req, res) {
-        const name = req.params.characterName;
+        const name = req.params.name;
 
         console.log(`Deleting character: ${name}.`);
 
@@ -54,7 +58,7 @@ export default {
                 routesUtil.success(
                     res,
                     "Successfully deleted character.",
-                    null
+                    {}
                 );
             })
             .catch((err) => {
@@ -62,7 +66,7 @@ export default {
             });
     },
     async find(req, res) {
-        const name = req.params.characterName;
+        const name = req.params.name;
 
         console.log(`Finding character: ${name}.`);
 
@@ -83,9 +87,11 @@ export default {
     async findAll(req, res) {
         await Character.findAll()
             .then((characters) => {
+                console.log(`Characters: ${JSON.stringify(characters)}`);
+
                 routesUtil.success(
                     res,
-                    "Successfully found all characters.",
+                    "Successfully found all characters",
                     characters
                 );
             })

@@ -1,15 +1,21 @@
 import { DataTypes } from "sequelize";
 import sequelizeInstance from "../database/sequelizeInstance.js";
 
-const Character = sequelizeInstance.define("Characters", {
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        primaryKey: true
+const Character = sequelizeInstance.define(
+    "Characters",
+    {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            primaryKey: true,
+        },
+        background: {
+            type: DataTypes.TEXT,
+        },
     },
-    background: {
-        type: DataTypes.TEXT,
-    },
-});
+    {
+        timestamps: false,
+    }
+);
 
 export default Character;

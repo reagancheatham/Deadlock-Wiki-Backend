@@ -1,7 +1,14 @@
-import express from "express";
+import { Router } from "express";
 import characterRoutes from "./character.routes.js";
 
-const router = express.Router();
+const router = Router();
+
+router.use((req, res, next) => {
+    console.log("router received request " + req.url);
+
+    next();
+});
+
 
 router.use("/characters", characterRoutes);
 
