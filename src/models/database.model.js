@@ -6,6 +6,8 @@ import WeaponStats from "./weaponStats.model.js";
 import VitalityStats from "./vitalityStats.model.js";
 import Ability from "./ability.model.js";
 import AbilityStats from "./abilityStats.model.js";
+import UpdateHistory from "./updateHistory.model.js";
+import Quote from "./quote.model.js";
 
 Character.hasOne(CharacterInfo, {
     foreignKey: "characterID",
@@ -45,6 +47,36 @@ Ability.hasOne(AbilityStats, {
 });
 AbilityStats.belongsTo(Ability, {
     foreignKey: "abilityID",
+    onDelete: "CASCADE",
+});
+
+Character.hasMany(UpdateHistory, {
+    foreignKey: "characterID",
+    onDelete: "CASCADE",
+});
+
+UpdateHistory.hasOne(Character, {
+    foreignKey: "characterID",
+    onDelete: "CASCADE",
+});
+
+Character.hasMany(Quote, {
+    foreignKey: "characterID",
+    onDelete: "CASCADE",
+});
+
+Character.hasMany(Quote, {
+    foreignKey: "guestCharacterID",
+    onDelete: "CASCADE",
+});
+
+Quote.hasOne(Character, {
+    foreignKey: "characterID",
+    onDelete: "CASCADE",
+});
+
+Quote.hasOne(Character, {
+    foreignKey: "guestCharacterID",
     onDelete: "CASCADE",
 });
 

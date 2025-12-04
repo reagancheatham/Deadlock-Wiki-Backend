@@ -6,6 +6,8 @@ import weaponRoutes from "./weapon.routes.js";
 import weaponStatRoutes from "./weaponStats.routes.js";
 import abilityRoutes from "./ability.routes.js";
 import abilityStatsRoutes from "./abilityStats.routes.js";
+import updateHistoryRoutes from "./updateHistory.routes.js";
+import quoteRoutes from "./quote.routes.js";
 
 const router = Router();
 
@@ -22,5 +24,7 @@ router.use("/weapons", weaponRoutes);
 router.use("/weapons/stats", weaponStatRoutes);
 router.use("/abilities", abilityRoutes);
 router.use("/abilities/stats", abilityStatsRoutes);
+router.use("/updateHistory", updateHistoryRoutes);
+router.use("/quotes", quoteRoutes);
 
 export default router;
