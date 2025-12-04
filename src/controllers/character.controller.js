@@ -87,8 +87,6 @@ export default {
     async findAll(req, res) {
         await Character.findAll()
             .then((characters) => {
-                console.log(`Characters: ${JSON.stringify(characters)}`);
-
                 routesUtil.success(
                     res,
                     "Successfully found all characters",
