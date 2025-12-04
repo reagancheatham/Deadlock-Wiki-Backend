@@ -1,0 +1,319 @@
+{
+  "characters": [
+    {
+      "character": "Abrams",
+      "abilities": [
+        {
+          "abilitySlot": 1,
+          "abilityName": "Siphon Life",
+          "abilityDescription": "Drain health from nearby enemies in front of you, dealing Spirit damage over time and healing for a portion of the damage dealt.",
+          "stats": {
+            "range": 10,
+            "cooldown": 42,
+            "duration": 4
+          }
+        },
+        {
+          "abilitySlot": 2,
+          "abilityName": "Shoulder Charge",
+          "abilityDescription": "Charge forward, pulling enemies you hit. Pushing a hero into a wall applies stun.",
+          "stats": {
+            "range": null,
+            "cooldown": 33,
+            "duration": 1.2
+          }
+        },
+        {
+          "abilitySlot": 3,
+          "abilityName": "Infernal Resilience",
+          "abilityDescription": "Gain bonus defensive attributes. Taking damage grants temporary regeneration for a portion of the damage taken.",
+          "stats": {
+            "range": null,
+            "cooldown": null,
+            "duration": null
+          }
+        },
+        {
+          "abilitySlot": 4,
+          "abilityName": "Seismic Impact",
+          "abilityDescription": "Leap high into the air before crashing into the ground, dealing spirit damage and applying stun.",
+          "stats": {
+            "range": 10.5,
+            "cooldown": 185,
+            "duration": null
+          }
+        }
+      ]
+    },
+    {
+      "character": "Bebop",
+      "abilities": [
+        {
+          "abilitySlot": 1,
+          "abilityName": "Exploding Uppercut",
+          "abilityDescription": "Deal melee damage to nearby enemies and apply knockback. When they land, they deal spirit damage and apply reduced fire rate to other nearby enemies. Exploding Uppercut can be used on allies.",
+          "stats": {
+            "range": 14,
+            "cooldown": 22,
+            "duration": null
+          }
+        },
+        {
+          "abilitySlot": 2,
+          "abilityName": "Sticky Bomb",
+          "abilityDescription": "Attach a bomb that explodes after a delay, dealing spirit damage to nearby enemies. If the bomb hits or kills a hero, you gain permanent bonus damage on Sticky Bomb. Hold Alternate Cast to attach the Sticky Bomb to yourself.",
+          "stats": {
+            "range": 12,
+            "cooldown": 18,
+            "duration": 3
+          }
+        },
+        {
+          "abilitySlot": 3,
+          "abilityName": "Grapple Arm",
+          "abilityDescription": "Launch out a mechanical hand that pulls the first character it hits, reeling them in. Grapple Arm can be used on allies.",
+          "stats": {
+            "range": 30,
+            "cooldown": 23,
+            "duration": null
+          }
+        },
+        {
+          "abilitySlot": 4,
+          "abilityName": "Hyper Beam",
+          "abilityDescription": "Channel a powerful torrent of energy that deals spirit damage and applies slow.",
+          "stats": {
+            "range": 70,
+            "cooldown": 105,
+            "duration": 11
+          }
+        }
+      ]
+    },
+    {
+      "character": "Bepop",
+      "abilities": [
+        {
+          "abilitySlot": 1,
+          "abilityName": "Exploding Uppercut",
+          "abilityDescription": "Deal melee damage to nearby enemies and apply knockback. When they land, they deal spirit damage and apply reduced fire rate to other nearby enemies. Exploding Uppercut can be used on allies.",
+          "stats": {
+            "range": 14,
+            "cooldown": 22,
+            "duration": null
+          }
+        },
+        {
+          "abilitySlot": 2,
+          "abilityName": "Sticky Bomb",
+          "abilityDescription": "Attach a bomb that explodes after a delay, dealing spirit damage to nearby enemies. If the bomb hits or kills a hero, you gain permanent bonus damage on Sticky Bomb. Hold Alternate Cast to attach the Sticky Bomb to yourself.",
+          "stats": {
+            "range": 12,
+            "cooldown": 18,
+            "duration": 3
+          }
+        },
+        {
+          "abilitySlot": 3,
+          "abilityName": "Grapple Arm",
+          "abilityDescription": "Launch out a mechanical hand that pulls the first character it hits, reeling them in. Grapple Arm can be used on allies.",
+          "stats": {
+            "range": 30,
+            "cooldown": 23,
+            "duration": null
+          }
+        },
+        {
+          "abilitySlot": 4,
+          "abilityName": "Hyper Beam",
+          "abilityDescription": "Channel a powerful torrent of energy that deals spirit damage and applies slow.",
+          "stats": {
+            "range": 70,
+            "cooldown": 105,
+            "duration": 11
+          }
+        }
+      ]
+    },
+    {
+      "character": "Billy",
+      "abilities": [
+        {
+          "abilitySlot": 1,
+          "abilityName": "Bash Down",
+          "abilityDescription": "Slam your bat into the ground, pulling enemies down and dealing melee damage. The slam creates a shockwave that deals spirit damage and applies knockup.",
+          "stats": {
+            "range": 4.5,
+            "cooldown": 35,
+            "duration": null
+          }
+        },
+        {
+          "abilitySlot": 2,
+          "abilityName": "Rising Ram",
+          "abilityDescription": "Charge head-first into an enemy and send them into the air along with Billy.",
+          "stats": {
+            "range": null,
+            "cooldown": 30,
+            "duration": 0.51
+          }
+        },
+        {
+          "abilitySlot": 3,
+          "abilityName": "Blasted",
+          "abilityDescription": "Passive: Melee hits restore ammo and inflict wrecked on the victim. Active: Empower your weapons. Melee boosts max health and bullets are amplified against wrecked enemies. Deal weapon damage to remain Blasted longer.",
+          "stats": {
+            "range": null,
+            "cooldown": 27,
+            "duration": 8
+          }
+        },
+        {
+          "abilitySlot": 4,
+          "abilityName": "Chain Gang",
+          "abilityDescription": "Chain nearby enemies to you. Chained enemies cannot use movement abilities and receive a heavy slow when they pull on the chain. After a delay, yank everyone towards Billy and deal spirit damage. The chain breaks if you lose line of sight for a short while.",
+          "stats": {
+            "range": 13,
+            "cooldown": 150,
+            "duration": 2.8
+          }
+        }
+      ]
+    },
+    {
+      "character": "Calico",
+      "abilities": [
+        {
+          "abilitySlot": 1,
+          "abilityName": "Gloom Bombs",
+          "abilityDescription": " Throw a cluster of bombs that detonate after a delay, dealing spirit damage. Enemies hit by multiple bombs take 65% damage.",
+          "stats": {
+            "range": 4.3,
+            "cooldown": 14,
+            "duration": null
+          }
+        },
+        {
+          "abilitySlot": 2,
+          "abilityName": "Leaping Slash",
+          "abilityDescription": "Dash forward before slashing all enemies in a circle, dealing melee damage. If the ability hits at least one hero, heal a small amount of health.",
+          "stats": {
+            "range": null,
+            "cooldown": 11,
+            "duration": null
+          }
+        },
+        {
+          "abilitySlot": 3,
+          "abilityName": "Ava",
+          "abilityDescription": "Turn to shadows and possess Ava. You gain bonus move speed and become hidden on the minimap, but cannot use your weapon or cast abilities. Melee button: Pounce to break boxes. When taking damage from an enemy hero, bonus move speed is reduced by 65% and you are unable to activate Ava for 6s.",
+          "stats": {
+            "range": null,
+            "cooldown": 45,
+            "duration": null
+          }
+        },
+        {
+          "abilitySlot": 4,
+          "abilityName": "Return to Shadows",
+          "abilityDescription": "Instantly turn to shadows, becoming untargetable, gaining bonus move speed, and dealing spirit damage. After a delay, return from the shadows, dealing spirit damage again.",
+          "stats": {
+            "range": 7.5,
+            "cooldown": 90,
+            "duration": null
+          }
+        }
+      ]
+    },
+    {
+      "character": "The Doorman",
+      "abilities": [
+        {
+          "abilitySlot": 1,
+          "abilityName": "Call Bell",
+          "abilityDescription": "Throw out a call bell that deals spirit damage on impact. After a short delay it explodes, dealing additional spirit damage and causing affected enemies to suffer reduced weapon accuracy and movement slow. Can be shot to detonate early.",
+          "stats": {
+            "radius": 5,
+            "duration": 4,
+            "cooldown": 18
+          }
+        },
+        {
+          "abilitySlot": 2,
+          "abilityName": "Doorway",
+          "abilityDescription": "Place two connected doors in the world. Players and most projectiles entering one door will exit out through the other. The doors will close at the end of the duration, or if the ability is activated again. The two doors must be placed within the doorway distance of each other.",
+          "stats": {
+            "range": 50,
+            "duration": 20,
+            "cooldown": 40
+          }
+        },
+        {
+          "abilitySlot": 3,
+          "abilityName": "Luggage Cart",
+          "abilityDescription": "Send out a luggage cart that deals spirit damage and pulls enemy heroes along its path. Can be alt cast with Alternate Cast to target friendly heroes instead.",
+          "stats": {
+            "range": 25,
+            "duration": 6,
+            "cooldown": 30
+          }
+        },
+        {
+          "abilitySlot": 4,
+          "abilityName": "Hotel Guest",
+          "abilityDescription": "Send the target's physical body to be a guest at the Baroness Hotel. The guest must make their way to the exit elevator, where they'll be sent back to their original position. A stay at the Baroness Hotel is paid for in spirit damage. Failure to check out on time costs additional spirit damage.",
+          "stats": {
+            "range": 5,
+            "duration": 6.5,
+            "cooldown": 120
+          }
+        }
+      ]
+    },
+    {
+      "character": "Drifter",
+      "abilities": [
+        {
+          "abilitySlot": 1,
+          "abilityName": "Rend",
+          "abilityDescription": "Swipe at enemies in a cone ahead of you, dealing melee damage. If the enemy is at close range, deal bonus spirit damage.",
+          "stats": {
+            "range": 18,
+            "cooldown": 13,
+            "duration": null
+          }
+        },
+        {
+          "abilitySlot": 2,
+          "abilityName": "Stalker's Mark",
+          "abilityDescription": "Send out a mark that bleeds the first target it hits, dealing spirit damage over time. While the enemy is bleeding you can re-activate Stalker's Mark to instantly appear behind their back.",
+          "stats": {
+            "duration": 6,
+            "range": null,
+            "cooldown": 20
+          }
+        },
+        {
+          "abilitySlot": 3,
+          "abilityName": "Bloodscent",
+          "abilityDescription": "Isolated heroes leave a trail as they move, and emit their heartbeat from afar. You deal amplified damage against isolated heroes, and killing them grants you permanent weapon damage.",
+          "stats": {
+            "range": 80,
+            "duration": null,
+            "cooldown": null
+          }
+        },
+        {
+          "abilitySlot": 4,
+          "abilityName": "Eternal Night",
+          "abilityDescription": "Surround nearby enemy heroes in darkness, severely limiting their vision of other units. Affected enemies are briefly revealed. You gain bonus sprint speed and your attacks proc spirit damage for the duration.",
+          "stats": {
+            "range": 100,
+            "duration": 7,
+            "cooldown": 130
+          }
+        }
+      ]
+    }
+  ]
+}
