@@ -31,16 +31,24 @@ export default {
         );
 
         await CharacterInfo.update(characterInfo, {
-            where: { characterName: characterInfo.characterName },
+            where: { characterID: characterInfo.characterID },
         })
-            .then((data) => {
-                routesUtil.success(
-                    res,
-                    `Successfully updated character info: ${JSON.stringify(
-                        data
-                    )}.`,
-                    data
-                );
+            .then((result) => {
+                if (result == 1) {
+                    routesUtil.success(
+                        res,
+                        `Successfully updated character info: ${JSON.stringify(
+                            result
+                        )}.`,
+                        {}
+                    );
+                } else {
+                    routesUtil.success(
+                        res,
+                        `Could not update character info with ID: ${characterInfo.characterID}.`,
+                        {}
+                    );
+                }
             })
             .catch((err) => {
                 routesUtil.error(

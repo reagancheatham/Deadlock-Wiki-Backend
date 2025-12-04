@@ -11,6 +11,6 @@ router.use((req, res, next) => {
 });
 
 router.use("/characters", characterRoutes);
-router.use("/characterInfo", characterInfoRoutes);
+router.use("/characterInfos", characterInfoRoutes);
 
 export default router;

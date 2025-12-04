@@ -1,4 +1,5 @@
 import Character from "../models/character.model.js";
+import CharacterInfo from "../models/characterInfo.model.js";
 import routesUtil from "../util/routesUtil.js";
 
 export default {
@@ -74,7 +75,7 @@ export default {
 
         console.log(`Finding character: ${id}.`);
 
-        await Character.findByPk(id)
+        await Character.findByPk(id, { include: CharacterInfo })
             .then((character) => {
                 routesUtil.success(
                     res,

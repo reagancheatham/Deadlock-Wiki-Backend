@@ -18,7 +18,7 @@ const CharacterInfo = sequelizeInstance.define(
             type: DataTypes.STRING,
         },
         releaseDate: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             validate: {
                 isAfter: "2015-01-01",
             },
