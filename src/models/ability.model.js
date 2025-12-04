@@ -37,6 +37,12 @@ const Ability = sequelizeInstance.define(
     },
     {
         timestamps: false,
+        indexes: [
+            {
+                unique: true,
+                fields: ["slot", "characterID"],
+            },
+        ],
     }
 );
 
