@@ -13,6 +13,7 @@ const CharacterInfo = sequelizeInstance.define(
                 model: Character,
                 key: "id",
             },
+            onDelete: "CASCADE",
         },
         voiceActor: {
             type: DataTypes.STRING,

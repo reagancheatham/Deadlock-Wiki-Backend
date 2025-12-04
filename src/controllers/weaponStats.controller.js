@@ -28,11 +28,7 @@ export default {
             `Updating weapon stats with info: ${JSON.stringify(weaponInfo)}.`
         );
 
-        await WeaponStats.update(weaponInfo, {
-            where: {
-                id: weaponInfo.id,
-            },
-        })
+        await WeaponStats.upsert(weaponInfo)
             .then((result) => {
                 if (result == 1) {
                     routesUtil.success(res, "Successfully updated weapon.", {});
@@ -93,7 +89,7 @@ export default {
 
         console.log(`Finding weapon stats: ${weaponID}.`);
 
-        await WeaponStats.find({
+        await WeaponStats.findOne({
             where: {
                 weaponID,
             },

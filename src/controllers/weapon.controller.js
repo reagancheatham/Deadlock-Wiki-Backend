@@ -11,11 +11,7 @@ export default {
 
         await Weapon.create(weaponInfo)
             .then((data) => {
-                routesUtil.success(
-                    res,
-                    "Successfully created weapon.",
-                    data
-                );
+                routesUtil.success(res, "Successfully created weapon.", data);
             })
             .catch((err) => {
                 routesUtil.error(res, `Error creating weapon: ${err}`);
@@ -28,25 +24,9 @@ export default {
             `Updating weapon with info: ${JSON.stringify(weaponInfo)}.`
         );
 
-        await Weapon.update(weaponInfo, {
-            where: {
-                id: weaponInfo.id,
-            },
-        })
+        await Weapon.upsert(weaponInfo, { returning: true })
             .then((result) => {
-                if (result == 1) {
-                    routesUtil.success(
-                        res,
-                        "Successfully updated weapon.",
-                        {}
-                    );
-                } else {
-                    routesUtil.success(
-                        res,
-                        `Could not find weapon with name: ${weaponInfo.name}`,
-                        {}
-                    );
-                }
+                routesUtil.success(res, "Successfully updated weapon.", result[0]);
             })
             .catch((err) => {
                 routesUtil.error(res, `Error updating weapon: ${err}`);
@@ -78,9 +58,24 @@ export default {
             .then((weapon) => {
                 routesUtil.success(
                     res,
-                    `Successfully found weapon: ${JSON.stringify(
-                        weapon
-                    )}.`,
+                    `Successfully found weapon: ${JSON.stringify(weapon)}.`,
+                    weapon
+                );
+            })
+            .catch((err) => {
+                routesUtil.error(res, `Error finding weapon: ${err}`);
+            });
+    },
+    async findByCharacterID(req, res) {
+        const characterID = req.params.characterID;
+
+        console.log(`Finding character weapon: ${characterID}.`);
+
+        await Weapon.findOne({ where: characterID })
+            .then((weapon) => {
+                routesUtil.success(
+                    res,
+                    `Successfully found weapon: ${JSON.stringify(weapon)}.`,
                     weapon
                 );
             })

@@ -9,6 +9,7 @@ const WeaponStats = sequelizeInstance.define(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true,
         },
         dps: {
             type: DataTypes.INTEGER,
@@ -70,9 +71,10 @@ const WeaponStats = sequelizeInstance.define(
             unique: true,
             references: {
                 model: Weapon,
-                key: "id"
-            }
-        }
+                key: "id",
+            },
+            onDelete: "CASCADE",
+        },
     },
     {
         timestamps: false,

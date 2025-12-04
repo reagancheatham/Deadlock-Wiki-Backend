@@ -29,25 +29,13 @@ export default {
             `Updating character with info: ${JSON.stringify(characterInfo)}.`
         );
 
-        await Character.update(characterInfo, {
-            where: {
-                id: characterInfo.id,
-            },
-        })
+        await Character.upsert(characterInfo, { returning: true })
             .then((result) => {
-                if (result == 1) {
-                    routesUtil.success(
-                        res,
-                        "Successfully updated character.",
-                        {}
-                    );
-                } else {
-                    routesUtil.success(
-                        res,
-                        `Could not find character with name: ${characterInfo.name}`,
-                        {}
-                    );
-                }
+                routesUtil.success(
+                    res,
+                    "Successfully updated character.",
+                    result[0]
+                );
             })
             .catch((err) => {
                 routesUtil.error(res, `Error updating character: ${err}`);

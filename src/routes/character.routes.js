@@ -11,9 +11,4 @@ router.delete("/:id", characterController.delete);
 router.get("/:id", characterController.find);
 router.get("/", characterController.findAll);
 
-router.post(VITALITY_PATH, vitalityStatsController.create);
-router.put(VITALITY_PATH, vitalityStatsController.update);
-router.delete(`${VITALITY_PATH}/:characterID`, vitalityStatsController.deleteByCharacterID);
-router.get(`${VITALITY_PATH}/:characterID`, vitalityStatsController.findByCharacterID);
-
 export default router;

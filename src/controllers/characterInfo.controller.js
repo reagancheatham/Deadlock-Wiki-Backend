@@ -30,9 +30,7 @@ export default {
             `Updating character info: ${JSON.stringify(characterInfo)}.`
         );
 
-        await CharacterInfo.update(characterInfo, {
-            where: { characterID: characterInfo.characterID },
-        })
+        await CharacterInfo.upsert(characterInfo)
             .then((result) => {
                 if (result == 1) {
                     routesUtil.success(

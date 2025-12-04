@@ -1,60 +1,41 @@
 import { DataTypes } from "sequelize";
 import sequelizeInstance from "../database/sequelizeInstance.js";
-import Character from "./character.model.js";
+import Ability from "./ability.model.js";
 
-const VitalityStats = sequelizeInstance.define(
-    "VitalityStats",
+const AbilityStats = sequelizeInstance.define(
+    "abilityStats",
     {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
         },
-        health: {
+        range: {
             type: DataTypes.INTEGER,
             validate: {
                 min: 0,
             },
         },
-        healthRegen: {
-            type: DataTypes.FLOAT,
-            validate: {
-                min: 0,
-            },
-        },
-        moveSpeed: {
-            type: DataTypes.FLOAT,
-            validate: {
-                min: 0,
-            },
-        },
-        dashSpeed: {
-            type: DataTypes.FLOAT,
-            validate: {
-                min: 0,
-            },
-        },
-        stamina: {
+        duration: {
             type: DataTypes.INTEGER,
             validate: {
                 min: 0,
             },
         },
-        staminaCooldown: {
+        cooldown: {
             type: DataTypes.FLOAT,
             validate: {
                 min: 0,
             },
         },
-        characterID: {
+        abilityID: {
             type: DataTypes.INTEGER,
-            unique: true,
             allowNull: false,
             references: {
-                model: Character,
+                model: Ability,
                 key: "id",
             },
-            onDelete: "CASCADE"
+            onDelete: "CASCADE",
         },
     },
     {
@@ -62,4 +43,4 @@ const VitalityStats = sequelizeInstance.define(
     }
 );
 
-export default VitalityStats;
+export default AbilityStats;

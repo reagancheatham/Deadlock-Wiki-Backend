@@ -28,21 +28,9 @@ export default {
             `Updating vitality stats with info: ${JSON.stringify(vitalityInfo)}.`
         );
 
-        await VitalityStats.update(vitalityInfo, {
-            where: {
-                id: vitalityInfo.id,
-            },
-        })
-            .then((result) => {
-                if (result == 1) {
-                    routesUtil.success(res, "Successfully updated vitality.", {});
-                } else {
-                    routesUtil.success(
-                        res,
-                        `Could not find vitality stats with id: ${vitalityInfo.id}`,
-                        {}
-                    );
-                }
+        await VitalityStats.upsert(vitalityInfo)
+            .then(() => {
+                routesUtil.success(res, "Successfully updated vitality.", {});
             })
             .catch((err) => {
                 routesUtil.error(res, `Error updating vitality stats: ${err}`);
