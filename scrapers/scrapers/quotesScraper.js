@@ -126,7 +126,7 @@ export async function importQuotes(urls) {
 
           // Ensure main character exists
           const [mainChar] = await Character.findOrCreate({
-            where: { characterName: mainCharacter },
+            where: { name: mainCharacter },
             defaults: { background: "" },
           });
 
@@ -137,7 +137,7 @@ export async function importQuotes(urls) {
           const guestChars = await Promise.all(
             guestNames.map((name) =>
               Character.findOrCreate({
-                where: { characterName: name },
+                where: { name: name },
                 defaults: { background: "" },
               }).then(([char]) => ({ name, id: char.id }))
             )
@@ -156,7 +156,7 @@ export async function importQuotes(urls) {
                 guestCharacter: q.guestCharacter
                   ? guestMap[q.guestCharacter]
                   : null, // store guest character ID
-                characterID: mainChar.characterID, // main character ID
+                characterID: mainChar.id, // main character ID
               })
             )
           );

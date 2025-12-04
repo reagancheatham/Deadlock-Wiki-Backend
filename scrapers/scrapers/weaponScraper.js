@@ -107,7 +107,7 @@ async function importOne(url) {
   for (const s of stats) {
     await WeaponStats.create({
       ...s,
-      weaponID: weapon.weaponID
+      weaponID: weapon.id
     });
   }
 }

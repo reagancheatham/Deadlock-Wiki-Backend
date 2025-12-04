@@ -19,8 +19,8 @@ export async function scrapeAndImportCharacter(url) {
     const res = await axios.get(url);
     const $ = cheerio.load(res.data);
 
-    const characterName = $("h1").first().text().trim().replace(/\/.*$/, "");
-    if (!characterName) {
+    const name = $("h1").first().text().trim().replace(/\/.*$/, "");
+    if (!name) {
       console.warn(`⚠ Could not find character name on ${url}`);
       return null;
     }
@@ -36,7 +36,7 @@ export async function scrapeAndImportCharacter(url) {
 
     // Insert into DB
     const [character, created] = await Character.findOrCreate({
-      where: { characterName },
+      where: { name },
       defaults: { background: background || "" },
     });
 
@@ -44,11 +44,11 @@ export async function scrapeAndImportCharacter(url) {
     if (!created && (!character.background || character.background.trim() === "") && background) {
       character.background = background;
       await character.save();
-      console.log(`✓ Updated background for "${character.characterName}" (ID: ${character.id})`);
+      console.log(`✓ Updated background for "${character.name}" (ID: ${character.id})`);
     } else if (created) {
-      console.log(`✓ Added "${character.characterName}" (ID: ${character.id})`);
+      console.log(`✓ Added "${character.name}" (ID: ${character.id})`);
     } else {
-      console.log(`✓ Character "${character.characterName}" already exists with background`);
+      console.log(`✓ Character "${character.name}" already exists with background`);
     }
 
     return character.id;

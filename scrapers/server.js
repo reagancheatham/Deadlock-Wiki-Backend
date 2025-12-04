@@ -1,12 +1,8 @@
 
 import { importCharacters } from "./scrapers/characterScraper.js";
-import { importWeapons } from "./scrapers/weaponScraper.js";
-import { importAbilities } from "./scrapers/abilitiesScraper.js";
-import { importVitalityStats } from "./scrapers/vitalityStatsScraper.js";
-import { importUpdateHistories } from "./scrapers/updateHistoryScraper.js";
+
 import { importQuotes } from "./scrapers/quotesScraper.js";
-import { importTrivia } from "./scrapers/triviaScraper.js";
-import { importCharacterInformation } from "./scrapers/characterInformationScraper.js";
+
 import sequelize from "./database/db.js";
 
 // --------------------
@@ -100,13 +96,7 @@ async function main() {
   await initDB(); // drops & recreates tables
 
   await importCharacters(urls);
-  await importWeapons(urls); 
-  await importAbilities("./deadlockAbilities.json"); 
-  await importVitalityStats(urls);
-  await importUpdateHistories(urls);
   await importQuotes(quoteUrls);
-  await importTrivia(urls);
-  await importCharacterInformation(urls);
 
   console.log("🎉 All imports done!");
   process.exit(0); // safely exit

@@ -41,7 +41,7 @@ async function importCharacterAbilities(charObj) {
       // Upsert stats if exists
       if (ability.stats && Object.keys(ability.stats).length) {
         await AbilityStats.upsert({
-          abilityID: ab.abilityID,
+          abilityID: ab.id,
           ...ability.stats
         });
       }
