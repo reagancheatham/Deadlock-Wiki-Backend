@@ -1,5 +1,8 @@
 import Character from "../models/character.model.js";
 import CharacterInfo from "../models/characterInfo.model.js";
+import VitalityStats from "../models/vitalityStats.model.js";
+import Weapon from "../models/weapon.model.js";
+import WeaponStats from "../models/weaponStats.model.js";
 import routesUtil from "../util/routesUtil.js";
 
 export default {
@@ -88,6 +91,34 @@ export default {
             })
             .catch((err) => {
                 routesUtil.error(res, `Error finding all characters: ${err}`);
+            });
+    },
+    async getGameplayData(req, res) {
+        const id = req.params.id;
+
+        console.log(`Loading gameplay character data: ${id}.`);
+
+        await Character.findByPk(id, {
+            include: [
+                {
+                    model: CharacterInfo,
+                },
+                {
+                    model: VitalityStats,
+                },
+            ],
+        })
+            .then((response) => {
+                routesUtil.success(
+                    res,
+                    `Successfully loaded gameplay data: ${JSON.stringify(
+                        response
+                    )}.`,
+                    response
+                );
+            })
+            .catch((err) => {
+                routesUtil.error(res, `Error loading gameplay data: ${err}`);
             });
     },
 };

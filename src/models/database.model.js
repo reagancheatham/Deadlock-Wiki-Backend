@@ -71,12 +71,12 @@ Character.hasMany(Quote, {
     onDelete: "CASCADE",
 });
 
-Quote.hasOne(Character, {
+Quote.belongsTo(Character, {
     foreignKey: "characterID",
     onDelete: "CASCADE",
 });
 
-Quote.hasOne(Character, {
+Quote.belongsTo(Character, {
     foreignKey: "guestCharacterID",
     onDelete: "CASCADE",
 });
@@ -86,7 +86,7 @@ Character.hasMany(Trivia, {
     onDelete: "CASCADE",
 });
 
-Trivia.hasOne(Character, {
+Trivia.belongsTo(Character, {
     foreignKey: "characterID",
     onDelete: "CASCADE",
 });
