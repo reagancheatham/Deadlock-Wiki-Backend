@@ -20,6 +20,12 @@ const Character = sequelizeInstance.define(
     },
     {
         timestamps: false,
+        indexes: [
+            {
+                unique: true,
+                fields: ["id"],
+            },
+        ],
     }
 );
 
