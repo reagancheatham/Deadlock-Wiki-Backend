@@ -15,6 +15,12 @@ Database.SequelizeInstance.sync({ alter: true }).then(() => {
             console.log("Healthy Characters: " + JSON.stringify(result));
         }
     ); 
+
+    Database.SequelizeInstance.query("SELECT * FROM character_data").then(
+        (result) => {
+            console.log("Character Data: " + JSON.stringify(result));
+        }
+    )
 });
 
 const app = express();
