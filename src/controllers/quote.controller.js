@@ -56,8 +56,6 @@ export default {
     async findAll(req, res) {
         await Quote.findAll()
             .then((quotes) => {
-                console.log("quotes: " + JSON.stringify(quotes));
-
                 routesUtil.success(
                     res,
                     "Successfully found all quotes",
