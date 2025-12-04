@@ -14,7 +14,7 @@ Database.SequelizeInstance.sync({ alter: true }).then(() => {
         (result) => {
             console.log("Healthy Characters: " + JSON.stringify(result));
         }
-    );
+    ); 
 });
 
 const app = express();

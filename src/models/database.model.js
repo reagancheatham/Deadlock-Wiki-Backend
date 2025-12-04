@@ -56,7 +56,7 @@ Character.hasMany(UpdateHistory, {
     onDelete: "CASCADE",
 });
 
-UpdateHistory.hasOne(Character, {
+UpdateHistory.belongsTo(Character, {
     foreignKey: "characterID",
     onDelete: "CASCADE",
 });
