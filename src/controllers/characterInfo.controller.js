@@ -31,16 +31,24 @@ export default {
         );
 
         await CharacterInfo.update(characterInfo, {
-            where: { characterName: characterInfo.characterName },
+            where: { characterID: characterInfo.characterID },
         })
-            .then((data) => {
-                routesUtil.success(
-                    res,
-                    `Successfully updated character info: ${JSON.stringify(
-                        data
-                    )}.`,
-                    data
-                );
+            .then((result) => {
+                if (result == 1) {
+                    routesUtil.success(
+                        res,
+                        `Successfully updated character info: ${JSON.stringify(
+                            result
+                        )}.`,
+                        {}
+                    );
+                } else {
+                    routesUtil.success(
+                        res,
+                        `Could not update character info with ID: ${characterInfo.characterID}.`,
+                        {}
+                    );
+                }
             })
             .catch((err) => {
                 routesUtil.error(
@@ -50,13 +58,13 @@ export default {
             });
     },
     async delete(req, res) {
-        const characterName = req.params.characterName;
+        const characterID = req.params.characterID;
 
-        console.log(`Deleting character info: ${characterName}.`);
+        console.log(`Deleting character info: ${characterID}.`);
 
         await CharacterInfo.destroy({
             where: {
-                characterName,
+                characterID,
             },
         })
             .then((response) => {
@@ -71,11 +79,11 @@ export default {
             });
     },
     async find(req, res) {
-        const characterName = req.params.characterName;
+        const characterID = req.params.characterID;
 
-        console.log(`Finding character info: ${characterName}.`);
+        console.log(`Finding character info: ${characterID}.`);
 
-        await CharacterInfo.findByPk(characterName)
+        await CharacterInfo.findByPk(characterID)
             .then((data) => {
                 routesUtil.success(
                     res,
