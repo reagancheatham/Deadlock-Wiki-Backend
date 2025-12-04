@@ -9,7 +9,13 @@ import router from "./routes/router.js";
 import databaseConfig from "./database/databaseConfig.js";
 import Database from "./models/database.model.js";
 
-Database.SequelizeInstance.sync({ alter: true });
+Database.SequelizeInstance.sync({ alter: true }).then(() => {
+    Database.SequelizeInstance.query("CALL GetHealthyCharacters();").then(
+        (result) => {
+            console.log("Healthy Characters: " + JSON.stringify(result));
+        }
+    );
+});
 
 const app = express();
 app.use(cors(corsOptions));

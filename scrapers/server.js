@@ -84,7 +84,7 @@ async function initDB() {
   try {
     await sequelize.authenticate();
     console.log("✅ Database connected successfully.");
-    await sequelize.sync({ force: true });
+    await sequelize.sync();
     console.log("✅ All tables recreated successfully.");
   } catch (err) {
     console.error("❌ DB init error:", err);
