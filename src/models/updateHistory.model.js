@@ -3,7 +3,7 @@ import sequelizeInstance from "../database/sequelizeInstance.js";
 import Character from "./character.model.js";
 
 const UpdateHistory = sequelizeInstance.define(
-    "updateHistory",
+    "updateHistories",
     {
         id: {
             type: DataTypes.INTEGER,
