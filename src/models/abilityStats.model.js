@@ -5,10 +5,15 @@ import Ability from "./ability.model.js";
 const AbilityStats = sequelizeInstance.define(
     "abilityStats",
     {
-        id: {
+        abilityID: {
             type: DataTypes.INTEGER,
-            autoIncrement: true,
+            allowNull: false,
             primaryKey: true,
+            references: {
+                model: Ability,
+                key: "id",
+            },
+            onDelete: "CASCADE",
         },
         range: {
             type: DataTypes.INTEGER,
@@ -27,15 +32,6 @@ const AbilityStats = sequelizeInstance.define(
             validate: {
                 min: 0,
             },
-        },
-        abilityID: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Ability,
-                key: "id",
-            },
-            onDelete: "CASCADE",
         },
     },
     {

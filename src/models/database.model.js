@@ -43,7 +43,7 @@ Ability.hasOne(AbilityStats, {
     foreignKey: "abilityID",
     onDelete: "CASCADE",
 });
-AbilityStats.hasOne(Ability, {
+AbilityStats.belongsTo(Ability, {
     foreignKey: "abilityID",
     onDelete: "CASCADE",
 });

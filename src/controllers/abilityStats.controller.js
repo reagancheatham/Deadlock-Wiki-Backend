@@ -61,29 +61,10 @@ export default {
                 routesUtil.error(res, `Error deleting ability stats: ${err}`);
             });
     },
-    async find(req, res) {
-        const id = req.params.id;
-
-        console.log(`Finding abililty: ${id}.`);
-
-        await AbilityStats.findByPk(id, { include: CharacterInfo })
-            .then((abililty) => {
-                routesUtil.success(
-                    res,
-                    `Successfully found ability stats: ${JSON.stringify(
-                        abililty
-                    )}.`,
-                    abililty
-                );
-            })
-            .catch((err) => {
-                routesUtil.error(res, `Error finding abililty stats: ${err}`);
-            });
-    },
     async findByAbilityID(req, res) {
         const abilityID = req.params.abilityID;
 
-        await AbilityStats.findAll({ where: { abilityID } })
+        await AbilityStats.findOne({ where: { abilityID } })
             .then((stats) => {
                 routesUtil.success(
                     res,
