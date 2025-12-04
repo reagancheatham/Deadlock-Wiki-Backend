@@ -150,10 +150,10 @@ export async function importQuotes(urls) {
           await Promise.all(
             quotes.map((q) =>
               Quote.create({
-                transcription: q.transcription,
+                transcript: q.transcription,
                 context: q.context,
                 item: q.item,
-                guestCharacter: q.guestCharacter
+                guestCharacterID: q.guestCharacter
                   ? guestMap[q.guestCharacter]
                   : null, // store guest character ID
                 characterID: mainChar.id, // main character ID
