@@ -74,7 +74,7 @@ export default {
 
         console.log(`Finding vitality stats: ${characterID}.`);
 
-        await VitalityStats.find({
+        await VitalityStats.findOne({
             where: {
                 characterID,
             },
