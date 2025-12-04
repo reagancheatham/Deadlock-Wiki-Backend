@@ -8,6 +8,7 @@ import abilityRoutes from "./ability.routes.js";
 import abilityStatsRoutes from "./abilityStats.routes.js";
 import updateHistoryRoutes from "./updateHistory.routes.js";
 import quoteRoutes from "./quote.routes.js";
+import triviaRoutes from "./trivia.routes.js";
 
 const router = Router();
 
@@ -26,5 +27,6 @@ router.use("/abilities", abilityRoutes);
 router.use("/abilities/stats", abilityStatsRoutes);
 router.use("/updateHistory", updateHistoryRoutes);
 router.use("/quotes", quoteRoutes);
+router.use("/trivia", triviaRoutes);
 
 export default router;

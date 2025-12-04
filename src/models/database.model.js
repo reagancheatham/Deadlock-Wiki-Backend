@@ -8,6 +8,7 @@ import Ability from "./ability.model.js";
 import AbilityStats from "./abilityStats.model.js";
 import UpdateHistory from "./updateHistory.model.js";
 import Quote from "./quote.model.js";
+import Trivia from "./trivia.model.js";
 
 Character.hasOne(CharacterInfo, {
     foreignKey: "characterID",
@@ -77,6 +78,16 @@ Quote.hasOne(Character, {
 
 Quote.hasOne(Character, {
     foreignKey: "guestCharacterID",
+    onDelete: "CASCADE",
+});
+
+Character.hasMany(Trivia, {
+    foreignKey: "characterID",
+    onDelete: "CASCADE",
+});
+
+Trivia.hasOne(Character, {
+    foreignKey: "characterID",
     onDelete: "CASCADE",
 });
 
