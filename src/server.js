@@ -2,9 +2,9 @@ import express from "express";
 import cors from "cors";
 import router from "./routes/router.js";
 import databaseConfig from "./database/databaseConfig.js";
-import sequelizeInstance from "./database/sequelizeInstance.js";
+import Database from "./models/database.model.js";
 
-sequelizeInstance.sync({ alter: true });
+Database.SequelizeInstance.sync({ alter: true });
 
 var corsOptions = {
     origin: "http://localhost:5173",
