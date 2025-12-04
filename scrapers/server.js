@@ -9,35 +9,6 @@ import { importTrivia } from "./scrapers/triviaScraper.js";
 import { importCharacterInformation } from "./scrapers/characterInformationScraper.js";
 import sequelize from "./database/db.js";
 
-async function initDB() {
-  try {
-    await sequelize.authenticate();
-    console.log("✅ Database connected successfully.");
-    await sequelize.sync({ force: true });
-    console.log("✅ All tables recreated successfully.");
-  } catch (err) {
-    console.error("❌ DB init error:", err);
-    throw err;
-  }
-}
-
-async function main() {
-  await initDB(); // drops & recreates tables
-
-  await importCharacters(urls);
-  await importWeapons(urls); 
-  await importAbilities("./deadlockAbilities.json"); 
-  await importVitalityStats(urls);
-  await importUpdateHistories(urls);
-  await importQuotes(quoteUrls);
-  await importTrivia(urls);
-  await importCharacterInformation(urls);
-
-  console.log("🎉 All imports done!");
-  process.exit(0); // safely exit
-}
-
-main().catch(err => console.error(err));
 // --------------------
 // CHARACTER URLS
 // --------------------
@@ -109,3 +80,36 @@ const quoteUrls = [
     "https://deadlock.wiki/Wraith/Quotes",
     "https://deadlock.wiki/Yamato/Quotes"
   ];
+
+
+
+
+async function initDB() {
+  try {
+    await sequelize.authenticate();
+    console.log("✅ Database connected successfully.");
+    await sequelize.sync({ force: true });
+    console.log("✅ All tables recreated successfully.");
+  } catch (err) {
+    console.error("❌ DB init error:", err);
+    throw err;
+  }
+}
+
+async function main() {
+  await initDB(); // drops & recreates tables
+
+  await importCharacters(urls);
+  await importWeapons(urls); 
+  await importAbilities("./deadlockAbilities.json"); 
+  await importVitalityStats(urls);
+  await importUpdateHistories(urls);
+  await importQuotes(quoteUrls);
+  await importTrivia(urls);
+  await importCharacterInformation(urls);
+
+  console.log("🎉 All imports done!");
+  process.exit(0); // safely exit
+}
+
+main().catch(err => console.error(err));

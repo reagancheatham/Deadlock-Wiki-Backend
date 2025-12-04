@@ -10,3 +10,5 @@ export default new Sequelize(
         dialect: "mysql",
     }
 );
+
+import "../models.js";

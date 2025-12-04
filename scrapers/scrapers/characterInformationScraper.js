@@ -82,7 +82,7 @@ async function scrapeAndImportOne(url) {
     // Upsert CharacterInformation
     // --------------------
     await CharacterInformation.upsert({
-      characterID: character.characterID,
+      characterID: character.id,
       voiceActor: info.voiceActor || null,
       releaseDate: normalizedDate || null,
       codenames: info.codenames || null

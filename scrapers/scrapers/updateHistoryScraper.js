@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { sequelize, Character, UpdateHistory } from "../models.js";
+import { Character, UpdateHistory } from "../models.js";
 
 // --------------------
 // Helpers
@@ -85,7 +85,7 @@ export async function importUpdateHistories(urls) {
       const updatesData = updates.map(u => ({
         date: u.date,
         changes: u.changes,
-        characterID: character.characterID,
+        characterID: character.id,
       }));
 
       // Bulk insert

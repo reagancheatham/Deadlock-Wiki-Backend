@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { sequelize, Character, Quote } from "../models.js";
+import { Character, Quote } from "../models.js";
 
 // --------------------
 // Helpers
@@ -139,7 +139,7 @@ export async function importQuotes(urls) {
               Character.findOrCreate({
                 where: { characterName: name },
                 defaults: { background: "" },
-              }).then(([char]) => ({ name, id: char.characterID }))
+              }).then(([char]) => ({ name, id: char.id }))
             )
           );
           const guestMap = Object.fromEntries(

@@ -1,27 +1,13 @@
 // models.js
-import { Sequelize, DataTypes } from "sequelize";
-
-// --------------------
-// DB Connection
-// --------------------
-export const sequelize = new Sequelize(
-  "deadlock_wiki",
-  "root",
-  "root",
-  {
-    host: "localhost",
-    dialect: "mysql",
-    logging: false,
-  }
-);
-
+import sequelize from "./database/db.js";
+import { DataTypes } from "sequelize";
 // --------------------
 // Character Model
 // --------------------
 export const Character = sequelize.define(
   "Character",
   {
-    characterID: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
     characterName: { type: DataTypes.STRING(50), allowNull: false, unique: true },
     background: { type: DataTypes.STRING(2000), allowNull: true },
   },
@@ -39,7 +25,7 @@ export const Trivia = sequelize.define(
     characterID: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: Character, key: "characterID" },
+      references: { model: Character, key: "id" },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
     },
@@ -60,7 +46,7 @@ export const Quote = sequelize.define(
     characterID: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: { model: Character, key: "characterID" },
+      references: { model: Character, key: "id" },
       onUpdate: "CASCADE",
       onDelete: "SET NULL",
     },
@@ -80,12 +66,12 @@ export const UpdateHistory = sequelize.define(
     characterID: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: Character, key: "characterID" },
+      references: { model: Character, key: "id" },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
     },
   },
-  { tableName: "updateHistory", timestamps: false }
+  { tableName: "updateHistories", timestamps: false }
 );
 
 // --------------------
@@ -98,7 +84,7 @@ export const VitalityStats = sequelize.define(
     characterID: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: Character, key: "characterID" },
+      references: { model: Character, key: "id" },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
     },
@@ -121,7 +107,7 @@ export const Weapon = sequelize.define(
     characterID: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: Character, key: "characterID" },
+      references: { model: Character, key: "id" },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
     },
@@ -163,7 +149,7 @@ export const Ability = sequelize.define(
     characterID: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: Character, key: "characterID" },
+      references: { model: Character, key: "id" },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
     },
@@ -205,7 +191,7 @@ export const CharacterInformation = sequelize.define(
     characterID: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: Character, key: "characterID" },
+      references: { model: Character, key: "id" },
       onUpdate: "CASCADE",
       onDelete: "CASCADE",
     },
@@ -213,5 +199,7 @@ export const CharacterInformation = sequelize.define(
     releaseDate: DataTypes.DATE,
     codenames: DataTypes.STRING(100),
   },
-  { tableName: "characterInformation", timestamps: false }
+  { tableName: "characterInfos", timestamps: false }
 );
+
+export default sequelize;

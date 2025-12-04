@@ -44,14 +44,14 @@ export async function scrapeAndImportCharacter(url) {
     if (!created && (!character.background || character.background.trim() === "") && background) {
       character.background = background;
       await character.save();
-      console.log(`✓ Updated background for "${character.characterName}" (ID: ${character.characterID})`);
+      console.log(`✓ Updated background for "${character.characterName}" (ID: ${character.id})`);
     } else if (created) {
-      console.log(`✓ Added "${character.characterName}" (ID: ${character.characterID})`);
+      console.log(`✓ Added "${character.characterName}" (ID: ${character.id})`);
     } else {
       console.log(`✓ Character "${character.characterName}" already exists with background`);
     }
 
-    return character.characterID;
+    return character.id;
   } catch (err) {
     console.error(`❌ Error scraping/importing ${url}:`, err.message);
     return null;

@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { sequelize, Character, Trivia } from "../models.js";
+import { Character, Trivia } from "../models.js";
 
 // --------------------
 // Helpers
@@ -68,12 +68,12 @@ async function scrapeAndInsertTrivia(url) {
 
   const triviaData = triviaItems.map(text => ({
     triviaText: text,
-    characterID: character.characterID,
+    characterID: character.id,
   }));
 
   // Avoid duplicates (optional)
   const existingTrivia = await Trivia.findAll({
-    where: { characterID: character.characterID },
+    where: { characterID: character.id },
     attributes: ["triviaText"],
   });
   const existingTexts = new Set(existingTrivia.map(t => t.triviaText));

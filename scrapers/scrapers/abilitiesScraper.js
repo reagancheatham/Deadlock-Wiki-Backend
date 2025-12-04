@@ -1,4 +1,4 @@
-import { sequelize, Character, Ability, AbilityStats } from "../models.js";
+import { Character, Ability, AbilityStats } from "../models.js";
 import fs from "fs/promises";
 
 // --------------------
@@ -22,7 +22,7 @@ async function importCharacterAbilities(charObj) {
       console.warn(`⚠ Character not found: ${characterName}`);
       return 0;
     }
-    const characterID = character.characterID;
+    const characterID = character.id;
 
     let inserted = 0;
 

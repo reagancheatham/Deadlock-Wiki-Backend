@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { sequelize, Character, VitalityStats } from "../models.js";
+import { Character, VitalityStats } from "../models.js";
 
 // --------------------
 // Helpers
@@ -107,7 +107,7 @@ export async function importVitalityStats(urls) {
 
     // Attach characterID and insert vitality stats
     await VitalityStats.create({
-      characterID: character.characterID,
+      characterID: character.id,
       health: r.health,
       healthRegen: r.healthRegen,
       moveSpeed: r.moveSpeed,
@@ -116,7 +116,7 @@ export async function importVitalityStats(urls) {
       staminaCooldown: r.staminaCooldown,
     });
 
-    console.log(`✓ Vitality stats imported for ${r.characterName} (ID: ${character.characterID})`);
+    console.log(`✓ Vitality stats imported for ${r.characterName} (ID: ${character.id})`);
   }
 
   console.log("\nAll vitality stats imported successfully.");

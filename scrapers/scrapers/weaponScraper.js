@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { sequelize, Character, Weapon, WeaponStats } from "../models.js";
+import { Character, Weapon, WeaponStats } from "../models.js";
 
 // --------------------
 // Helpers
@@ -99,8 +99,8 @@ async function importOne(url) {
 
     for (const weaponName of weapons) {
   const [weapon] = await Weapon.findOrCreate({
-    where: { weaponName, characterID: character.characterID },
-    defaults: { characterID: character.characterID }
+    where: { weaponName, characterID: character.id },
+    defaults: { characterID: character.id }
   });
 
   const stats = scrapeWeaponStats($, [weaponName]);
