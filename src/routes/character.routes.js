@@ -5,8 +5,8 @@ const router = Router();
 
 router.post("/", characterController.create);
 router.put("/", characterController.update);
-router.delete("/:name", characterController.delete);
-router.get("/:name", characterController.find);
+router.delete("/:id", characterController.delete);
+router.get("/:id", characterController.find);
 router.get("/", characterController.findAll);
 
 export default router;

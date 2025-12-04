@@ -30,47 +30,51 @@ export default {
 
         await Character.update(characterInfo, {
             where: {
-                name: characterInfo.name,
+                id: characterInfo.id,
             },
         })
-            .then((data) => {
-                routesUtil.success(
-                    res,
-                    "Successfully updated character.",
-                    data
-                );
+            .then((result) => {
+                if (result == 1) {
+                    routesUtil.success(
+                        res,
+                        "Successfully updated character.",
+                        {}
+                    );
+                } else {
+                    routesUtil.success(
+                        res,
+                        `Could not find character with name: ${characterInfo.name}`,
+                        {}
+                    );
+                }
             })
             .catch((err) => {
                 routesUtil.error(res, `Error updating character: ${err}`);
             });
     },
     async delete(req, res) {
-        const name = req.params.name;
+        const id = req.params.id;
 
-        console.log(`Deleting character: ${name}.`);
+        console.log(`Deleting character: ${id}.`);
 
         await Character.destroy({
             where: {
-                name,
+                id,
             },
         })
             .then(() => {
-                routesUtil.success(
-                    res,
-                    "Successfully deleted character.",
-                    {}
-                );
+                routesUtil.success(res, "Successfully deleted character.", {});
             })
             .catch((err) => {
                 routesUtil.error(res, `Error deleting character: ${err}`);
             });
     },
     async find(req, res) {
-        const name = req.params.name;
+        const id = req.params.id;
 
-        console.log(`Finding character: ${name}.`);
+        console.log(`Finding character: ${id}.`);
 
-        await Character.findByPk(name)
+        await Character.findByPk(id)
             .then((character) => {
                 routesUtil.success(
                     res,

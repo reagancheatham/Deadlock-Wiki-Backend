@@ -5,13 +5,13 @@ import Character from "./character.model.js";
 const CharacterInfo = sequelizeInstance.define(
     "CharacterInfos",
     {
-        characterName: {
-            type: DataTypes.STRING,
+        characterID: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             references: {
                 model: Character,
-                key: "name",
+                key: "id",
             },
         },
         voiceActor: {
